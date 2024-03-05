@@ -1,10 +1,8 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse, JSONResponse
-from pydantic import BaseModel
-from typing import Dict, List, Union
 import pandas as pd
 import numpy as np
-
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -77,7 +75,6 @@ async def home():
   
 
 # Cargamos los dataframes que se utilizan para las funciones
-
 df_games = pd.read_parquet('data/RS_games.parquet')
 
 # 3.2.1 **Developer** number of games and percentage of Free content by developer by year
@@ -85,7 +82,7 @@ df_developer = pd.read_parquet('data/developers.parquet')
 
 # 3.2.2 **User_data**: how much money has the user spent, what percentage, from the total number of games the user owns
 # has the user recommended from the reviews.recommend and how many games he purchased
-df_user_items = pd.read_parquet('data/user_items.parquet')
+df_items_users = pd.read_parquet('data/items_users.parquet')
 
 ## 3.2.3 **User_for_genres**: this function must return the user with more minutes accumulated for the given genres
 # and a list of minutes accumulated per year since the release date
@@ -159,22 +156,34 @@ def developer(developer_name: str = Query(...,
 def user_data(user_id: str = Query(...,
                                           description='user_id',
                                           example= 'piepai')):
-    user_id_items = df_user_items[df_user_items['user_id'] == user_id]
+        # Filter user items by user_id
+    df_user_id_items = df_items_users[df_items_users['user_id'] == user_id]
+
+    # Merge with df_games to add price
+    df_user_id_items = df_user_id_items.merge(df_games[['item_id', 'price']], on='item_id', how='left')
+    df_user_id_items['price'] = df_user_id_items['price'].fillna(0)
     
-    money_spent = user_id_items['price'].sum()
+    # Merge with df_reviews to add recommend
+    df_user_id_items = df_user_id_items.merge(df_reviews[['user_id', 'item_id', 'recommend']], on=['user_id', 'item_id'], how='left')
+    df_user_id_items['recommend'] = df_user_id_items['recommend'].fillna(0)
     
-    recommend_percentage = (user_id_items['recommend'].sum() / len(user_id_items)) * 100
-    
-    game_quantity = len(user_id_items)
-    
+    # Calculate total money spent
+    money_spent = df_user_id_items['price'].sum()
+
+    # Calculate recommend percentage
+    recommend_percentage = round((df_user_id_items['recommend'].sum() / len(df_user_id_items)), 4) * 100
+
+    # Calculate game quantity
+    game_quantity = len(df_user_id_items)
+
     result = {
         'User_Id': f'{user_id}',
         'Money Spent': f'{money_spent:.2f} USD',
         'Recommend Percentage': f'{recommend_percentage:.2f}%',
-        'Game Quantity': game_quantity
-    }
+        'Game Quantity': game_quantity}
     
-    return result
+    return JSONResponse(content=result)
+
 
 @app.get(path="/userForGenre",
          description= ''' <font color= '#1E1E24'>
@@ -187,7 +196,8 @@ def user_data(user_id: str = Query(...,
        'audio production', 'casual', 'design illustration', 'early access',
        'education', 'free to play', 'indie', 'massively multiplayer',
        'photo editing', 'racing', 'rpg', 'simulation', 'software training',
-       'sports', 'strategy', 'utilities', 'video production', 'web publishing'                     
+       'sports', 'strategy', 'utilities', 'video production', 'web publishing' <br>
+       Type genre name in lower case<br>                    
                             ''',
                             tags=['Consulta Generales'])   
 ## 3.2.3 **User_for_genres**: this function must return the user with more minutes accumulated for the given genres
@@ -230,7 +240,7 @@ def userForGenre(genre: str = Query(...,
                             1. Click on "Try it out" to input a valid year <br>
                             2. Scroll down to 'Responses' to view the df result<br>
                             3. Years range from : <br>
-                            List [2010,2011,2012,2014,2015,2024]                     
+                            List [2010,2011,2012,2013,2014,2015,2024]                     
                             ''',
                             tags=['Consulta Generales'])  
 def top_developers(year: int = Query(...,
