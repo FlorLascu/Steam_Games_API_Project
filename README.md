@@ -6,6 +6,12 @@
 
 El proyecto involucró explorar tres conjuntos de datos completos de la plataforma de juegos Steam, para que luego de un exhaustivo proceso de ETL y EDA crear realizar un analisis de sentimiento sobre las recomendaciones de los usuarios, y con las bases de datos bien procesadas, crear, finalmente, un modelo de Recomendación y otras tantas funciones que luego se convertirían en endpoints de nuestra API deployada en Render<br>
 
+En esta presentación estan de manera sintética los pasos, métodos, procesos y decisiones implicados en el desarrollo del presente proyecto. <br>
+En caso de querer profundizar sobre cualquiera de los puntos presentados, el archivo [Resumen del Proyecto](01.%20Resumen%20del%20Proyecto.md) contiene de manera detallada y completa cada paso del mismo, explicado en detalle.<br>
+Asi mismo, los notebooks a los que se hacen referencia en este [Readme](Readme.md) también tienen el desarollo del código. <br>
+
+Sin mas, paso a comentar los pasos realizados:<br>
+
 ### Pasos Realizados:<br>
 
 ## 1. Exploración y Limpieza de Datos:<br>
