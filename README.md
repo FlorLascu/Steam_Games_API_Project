@@ -1,4 +1,4 @@
-![Steam_logo](Steam_logo.JPG)
+![Steam_logo]('Steam_logo.JPG')
 
 # Proyecto: Construcción de un Sistema de Recomendación de Juegos
 
@@ -140,7 +140,21 @@ Para hacer el deploy de la misma en local, basta seguir las siguientes instrucci
 
 > uvicorn main:app --reload
 
-con esto nuestra API comenzara a correr:
+El comando "uvicorn main:app --reload" se utiliza para ejecutar la aplicación FastAPI llamada "app" ubicada en un archivo llamado "main.py" del repositoro, con la recarga automática habilitada. <br>
+Esto significa que el servidor se reiniciará automáticamente cada vez que se detecten cambios en el código, lo que permite una experiencia de desarrollo más fluida.<br>
+
+4. Una vez que en la terminal se lea: **Application startup complete** significa que podremos abrir el navegador y disponibilizar la API para explorarla:
+   ![alt text](image-1.png)
+
+5. Ir a la ruta: 127.0.0.1:8000
+   Se abrirá un modesto Home page con el link a los docs de la API, donde podremos experimentar con los resultados de las funciones y el model de Recomendación creado. <br>
+
+![alt text](image-2.png)
+
+Como se puede ver, esto es en local. Veremos la diferencia cuando corramos render.
+
+6. Dar click en el boton de [View Documentation](127.0.0.1:8000/docs), o bien navegar a [127.0.0.1:8000/docs](127.0.0.1:8000/docs)
+7. Estando en Documentos podemos interactuar con cada una de las funciones, simplemete hay que seguir las instrucciones que estan cargadas en la descripción de cada función, darle click al boton the Try it out! y listo, podemos explorarlas sin dificultades.
 
 # Recursos
 
