@@ -1,4 +1,4 @@
-![Steam_logo]('Steam_logo.JPG')
+![Steam_logo](03.%20images/Steam_logo.JPG)
 
 # Proyecto: Construcción de un Sistema de Recomendación de Juegos
 
@@ -125,11 +125,11 @@ Con todo este aprendizaje a cuestas, cree las funciones y sus endopoints en FAST
 La alegría duró poco, en el primer intento de realizar el deploy en render comenzaron las fallas, la falta de espacio y tocó ir para atrás una y otra vez.<br>
 Pero finalmente, despúes de varias experimentaciones y revisión de las funciones para que leyeran df mas compactas y modificar los filtrados para que funcionaran de manera interactiva desde el inicio para asi no tener que cargar las datasets originales, evitar al máximo los merge o los datasets tan pesados, la API estuvo live:<br>
 
-![alt text](image.png)
+![Render_Home](03.%20images/Render_Home.png)
 
 **Implementar la API en Render presentó desafíos significativos debido a la capacidad limitada de datos. Superar esto requirió solución de problemas creativos y extensos ensayos y errores. Sin embargo, la implementación exitosa sin errores o fallas fue inmensamente gratificante, culminando en un viaje de aprendizaje y crecimiento de una semana.**
 
-## Correr la API Steam_games_API en local
+## 9.1 Correr la API Steam_games_API en local
 
 La API tiene su repositorio propio, por el tema del volumen y la limitación de la capacidad de render a 512MB total. <br>
 Para hacer el deploy de la misma en local, basta seguir las siguientes instrucciones:
@@ -144,17 +144,46 @@ El comando "uvicorn main:app --reload" se utiliza para ejecutar la aplicación F
 Esto significa que el servidor se reiniciará automáticamente cada vez que se detecten cambios en el código, lo que permite una experiencia de desarrollo más fluida.<br>
 
 4. Una vez que en la terminal se lea: **Application startup complete** significa que podremos abrir el navegador y disponibilizar la API para explorarla:
-   ![alt text](image-1.png)
+   ![Application_Startup](03.%20images/Application_Startup.png)
 
 5. Ir a la ruta: 127.0.0.1:8000
    Se abrirá un modesto Home page con el link a los docs de la API, donde podremos experimentar con los resultados de las funciones y el model de Recomendación creado. <br>
 
-![alt text](image-2.png)
+![FASTAPI_Landing](03.%20images/FASTAPI_Landing.png)
 
 Como se puede ver, esto es en local. Veremos la diferencia cuando corramos render.
 
 6. Dar click en el boton de [View Documentation](127.0.0.1:8000/docs), o bien navegar a [127.0.0.1:8000/docs](127.0.0.1:8000/docs)
-7. Estando en Documentos podemos interactuar con cada una de las funciones, simplemete hay que seguir las instrucciones que estan cargadas en la descripción de cada función, darle click al boton the Try it out! y listo, podemos explorarlas sin dificultades.
+7. Estando en Documentos podemos interactuar con cada una de las funciones, simplemete hay que seguir las instrucciones que estan cargadas en la descripción de cada función, darle click al boton the **Try it out!** y listo, podemos explorarlas sin dificultades.
+
+![FASTAPI_Instrucciones](03.%20images/FASTAPI_Instrucciones.jpg)
+
+8. Aca se pueden visualizar un ejemplo, en este caso para el modelo de recomendación:
+
+![output_ejemplo](03.%20images/output_ejemplo.JPG)
+
+Una vez terminada la exploración se apaga desde la terminal, ya sea cerrando la terminal o con 'CRTL+C'
+
+![Stopping](03.%20images/Stoping.jpg)
+
+## 9.2 Deploy de FASTAPI en Render
+
+Para ello cree, como describí antes, un repositorio exclusivo para el Deploy: [Steam_games_API](https://github.com/FlorLascu/Steam_games_API)
+
+Este repo es el que utiliza render para correr el deploy.
+Los pasos, una vez familiarizada con el proceso, son relativamente fácil y muy intuitivos:
+
+1. Se crea la cuenta de FASTAPI y se la vincula a la cuenta de GitHub, y luego se le da click a New en el boton del Dashboard.
+2. Se selecciona Web Services (nuestra API es una REST API, web) y se selecciona el repo del deploy.
+3. Una vez seleccionado, Render hace tod el trabajo.
+4. Y como resultado nos disponibiliza un url donde esta nuestra API deployada:
+
+![Render_dashboard](03.%20images/render_dashboard.JPG)
+
+5. Como mi API ya esta deployada, voy a boton de Manually deploy y selecciono last committ:
+   - la url es https://steam-games-api.onrender.com/
+
+![API_render](03.%20images/API_desde_render.jpg)
 
 # Recursos
 
