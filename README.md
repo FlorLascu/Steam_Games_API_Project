@@ -4,7 +4,6 @@
 
 ### Resumen:
 
-Recientemente completé mi primer proyecto individual durante mi bootcamp de Ciencia de Datos en SoyHenry.<br>
 El proyecto involucró explorar tres conjuntos de datos completos de la plataforma de juegos Steam, para que luego de un exhaustivo proceso de ETL y EDA crear realizar un analisis de sentimiento sobre las recomendaciones de los usuarios, y con las bases de datos bien procesadas, crear, finalmente, un modelo de Recomendación y otras tantas funciones que luego se convertirían en endpoints de nuestra API deployada en Render<br>
 
 ### Pasos Realizados:<br>
@@ -31,9 +30,9 @@ Extraer información relevante de las estructuras JSON anidadas dentro de los pe
 Con el ETL finalizado continuamos con el proceso.<br>
 Se pueden ver en detalle los procesos recorridos con las dataset proporcionados en:
 
-[ETL_games](ETL_games.ipynb)<br>
-[ETL_reviews](ETL_reviews.ipynb)<br>
-[ETL_items](ETL_items.ipynb)<br>
+[ETL_games](01.%20ETL/ETL_games.ipynb)<br>
+[ETL_reviews](01.%20ETL/ETL_reviews.ipynb)<br>
+[ETL_items](01.%20ETL/ETL_items.ipynb)<br>
 
 ## 2. Análisis de Sentimientos en Reseñas:
 
@@ -72,9 +71,9 @@ Durante el proceso de EDA pudimos ver para cada dataset, entre otros:
 - un analisis de correlación para el precio y generos en games que resultó negativo.
   En fin, un trabajo muy valioso que se puede apreciar en detalle en:
 
-[EDA_games](EDA_games.ipynb)<br>
-[EDA_reviews](EDA_reviews.ipynb)<br>
-[EDA_items](EDA_items.ipynb)<br>
+[EDA_games](0.%20EDA/EDA_games.ipynb)<br>
+[EDA_reviews](02.%20EDA/EDA_reviews.ipynb)<br>
+[EDA_items](02.%20EDA/EDA_items.ipynb)<br>
 
 El EDA proporcionó ideas sobre variables y sus relaciones, preparando el terreno para construir el núcleo del proyecto: **un modelo de aprendizaje automático para recomendación de juegos.**
 
@@ -119,13 +118,26 @@ Y se puede ver el paso a paso en el apartado [3.2 Feature Engineering](03.%20Fea
 
 # Implementación de FASTAPI y Render:
 
-Comencé primero por aprender desde cero, ya que no tengo un background extenso en IT, que era una API.<br>
+Comencé primero por aprender desde lo básico: que es una API?<br>
 Cuando finalmente pude entender que es una API y como se utilizan, seguí con estudiar y entender el lenguaje que se utiliza para crear los endpoints, de decoradores, de respuesta JSONResponse, Query y pydantics varios.
 
 Con todo este aprendizaje a cuestas, cree las funciones y sus endopoints en FASTAPI y pude hacer que todo corriera sin dificultades y sin erores en local.<br>
 La alegría duró poco, en el primer intento de realizar el deploy en render comenzaron las fallas, la falta de espacio y tocó ir para atrás una y otra vez.<br>
-Pero finalmente, despues de varias experimentaciones y revisión de las funciones para que leyeran df mas compactas y modificar los filtrados para que funcionaran de manera interactiva y asi evitar los merge o los datasets tan pesados, la API estuvo live por internet:
+Pero finalmente, despúes de varias experimentaciones y revisión de las funciones para que leyeran df mas compactas y modificar los filtrados para que funcionaran de manera interactiva desde el inicio para asi no tener que cargar las datasets originales, evitar al máximo los merge o los datasets tan pesados, la API estuvo live:<br>
 
 ![alt text](image.png)
 
 **Implementar la API en Render presentó desafíos significativos debido a la capacidad limitada de datos. Superar esto requirió solución de problemas creativos y extensos ensayos y errores. Sin embargo, la implementación exitosa sin errores o fallas fue inmensamente gratificante, culminando en un viaje de aprendizaje y crecimiento de una semana.**
+
+# Recursos
+
+Estos son los tutoriales y páginas de consulta utilizados y consultados para el desarrollo del presente proyecto:
+
+- [Movie Recommendation System With Python and Pandas: Data Project](https://www.youtube.com/watch?v=eyEabQRBMQA) <br>
+- [KNN Machine Learning Model](https://www.youtube.com/watch?v=WWLTNLYWwcI)
+- [Deploying APIs on Render step by step](https://medium.com/@iamgreatdiro/deploying-apis-on-render-a-step-by-step-guide-4ebe6a3fd377)
+- [Builiding REST APIs with Python and FASTAPI](https://medium.com/@ramjoshi.blogs/building-rest-apis-with-python-and-fastapi-f0e9ae19905c)
+- [What is an API?](https://www.youtube.com/watch?v=RKtl_L4ASQ4&t=8s)
+- [Convert JSON to pd.DataFrame](https://stackoverflow.com/questions/55338899/convert-json-to-pd-dataframe/65427497#65427497)<br>
+- [JSONDecodeError](https://bobbyhadz.com/blog/python-jsondecodeerror-expecting-property-name-enclosed-in-double-quotes)<br>
+- [Convert list of nested dictionary into Pandas dataframe](https://www.geeksforgeeks.org/python-convert-list-of-nested-dictionary-into-pandas-dataframe/)
