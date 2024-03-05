@@ -116,7 +116,7 @@ Y se puede ver el paso a paso en el apartado [3.2 Feature Engineering](03.%20Fea
 6. **find_similar_games(game_name:str)**: Encuentra juegos similares basados en similitud coseno y proporciona recomendaciones.
 7. **find_user_recommendations(user_id:str)**: Ofrece recomendaciones personalizadas basadas en interacciones entre usuarios y elementos.
 
-# Implementación de FASTAPI y Render:
+## 9. Implementación de FASTAPI y Render:
 
 Comencé primero por aprender desde lo básico: que es una API?<br>
 Cuando finalmente pude entender que es una API y como se utilizan, seguí con estudiar y entender el lenguaje que se utiliza para crear los endpoints, de decoradores, de respuesta JSONResponse, Query y pydantics varios.
@@ -128,6 +128,19 @@ Pero finalmente, despúes de varias experimentaciones y revisión de las funcion
 ![alt text](image.png)
 
 **Implementar la API en Render presentó desafíos significativos debido a la capacidad limitada de datos. Superar esto requirió solución de problemas creativos y extensos ensayos y errores. Sin embargo, la implementación exitosa sin errores o fallas fue inmensamente gratificante, culminando en un viaje de aprendizaje y crecimiento de una semana.**
+
+## Correr la API Steam_games_API en local
+
+La API tiene su repositorio propio, por el tema del volumen y la limitación de la capacidad de render a 512MB total. <br>
+Para hacer el deploy de la misma en local, basta seguir las siguientes instrucciones:
+
+1. Clonar el repositorio o bajarlo del GitHub a local. Desde acá lo pueden ver: [Steam_games_API](https://github.com/FlorLascu/Steam_games_API)
+2. Activar el entorno virtual, abrir la carpeta del repositorio o la copia de la carpeta download con Visual.
+3. Abrir la terminal:
+
+> uvicorn main:app --reload
+
+con esto nuestra API comenzara a correr:
 
 # Recursos
 
