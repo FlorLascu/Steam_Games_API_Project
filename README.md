@@ -146,7 +146,7 @@ Para hacer el deploy de la misma en local, basta seguir las siguientes instrucci
 
 > uvicorn main:app --reload
 
-El comando "uvicorn main:app --reload" se utiliza para ejecutar la aplicación FastAPI llamada "app" ubicada en un archivo llamado "main.py" del repositoro, con la recarga automática habilitada. <br>
+El comando "uvicorn main:app --reload" se utiliza para ejecutar la aplicación FastAPI llamada "app" ubicada en un archivo llamado [main](main.py.py)" del repositoro, con la recarga automática habilitada. El archivo main es el desarrollo de la API, sus endpoints y sus dataset.<br>
 Esto significa que el servidor se reiniciará automáticamente cada vez que se detecten cambios en el código, lo que permite una experiencia de desarrollo más fluida.<br>
 
 4. Una vez que en la terminal se lea: **Application startup complete** significa que podremos abrir el navegador y disponibilizar la API para explorarla:
