@@ -4,11 +4,11 @@
 
 ### Resumen:
 
-El proyecto involucró explorar tres conjuntos de datos completos de la plataforma de juegos Steam, para que luego de un exhaustivo proceso de ETL y EDA crear realizar un analisis de sentimiento sobre las recomendaciones de los usuarios, y con las bases de datos bien procesadas, crear, finalmente, un modelo de Recomendación y otras tantas funciones que luego se convertirían en endpoints de nuestra API deployada en Render<br>
+El proyecto consistió en explorar tres conjuntos de datos completos de la plataforma de juegos Steam, para que luego de un exhaustivo proceso de ETL y EDA pudiera realizar un analisis de sentimiento sobre las recomendaciones de los usuarios. Luego,con las bases de datos ya procesadas, crear finalmente, un modelo de Recomendación y otras tantas funciones que luego se convertirían en endpoints de nuestra API deployada en Render<br>
 
-En esta presentación estan de manera sintética los pasos, métodos, procesos y decisiones implicados en el desarrollo del presente proyecto. <br>
-En caso de querer profundizar sobre cualquiera de los puntos presentados, el archivo [Resumen del Proyecto](01.%20Resumen%20del%20Proyecto.md) contiene de manera detallada y completa cada paso del mismo, explicado en detalle.<br>
-Asi mismo, los notebooks a los que se hacen referencia en este [Readme](Readme.md) también tienen el desarollo del código. <br>
+En esta presentación se encuentran los pasos, métodos, procesos y decisiones implicados en el desarrollo del proyecto. <br>
+En caso de querer profundizar sobre cualquiera de los puntos presentados, el archivo [Resumen del Proyecto](01.%20Resumen%20del%20Proyecto.md) contiene de manera detallada y completa cada paso del mismo, explicado a detalle.<br>
+Así mismo, los notebooks a los que se hacen referencia en este [Readme](Readme.md) también tienen el desarollo del código. <br>
 
 Sin mas, paso a comentar los pasos realizados:<br>
 
@@ -60,7 +60,7 @@ La puntuación se definió con una fórmula que asignaba a la reseña una puntua
 - Si el usuario recomendó o no al juego a pesar de su reseña. (columna recommed)
 - Sentiment resultante del analisis de Sentimiento realizado, positivo = 2 y negativo = 0.
 
-Este scoring fue luego el corazdn de nuestro Sistema de Recomendación de Filtrado Colaborativo.<br>
+Este scoring fue luego el corazón de nuestro Sistema de Recomendación de Filtrado Colaborativo.<br>
 Para ver en detalle como fue creada la función para el 'Rating' ver [Recommendation_Model](04.%20Recomendation_Model.ipynb)
 
 ### Conclusiones:
@@ -111,7 +111,7 @@ Los pasos detallados para la creación de cada modelo y sus funciones están doc
 
 ## 8. Funciones Destacadas Desarrolladas:
 
-El desarrollo de todas las funciones que luego se visualizarán en Render se según lo solicitado en el scope del proyecto.<br>
+En este apartado, desarrollé todas las funciones que luego se visualizarán en Render según lo solicitado en el scope del proyecto.<br>
 Y se puede ver el paso a paso en el apartado [3.2 Feature Engineering](03.%20Feature%20Engineering.ipynb)<br>
 
 1. **developer(developer:str)**: Renderiza una estructura JSON que muestra la historia de un desarrollador a lo largo de los años.
