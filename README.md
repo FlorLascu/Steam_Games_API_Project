@@ -114,11 +114,11 @@ Los pasos detallados para la creación de cada modelo y sus funciones están doc
 En este apartado, desarrollé todas las funciones que luego se visualizarán en Render según lo solicitado en el scope del proyecto.<br>
 Y se puede ver el paso a paso en el apartado [3.2 Feature Engineering](03.%20Feature%20Engineering.ipynb)<br>
 
-1. **developer(developer:str)**: Renderiza una estructura JSON que muestra la historia de un desarrollador a lo largo de los años.
+1. **developer(developer:str)**: devuelve una estructura JSON que muestra para el desarrollador el porcentaje de juegos Free y su historial de desarrollo de items a lo largo de los años
 2. **user_data(user_id:str)**: Muestra el gasto del usuario, el porcentaje de juegos recomendados y el recuento total de juegos.
-3. **UserForGenre(genre: str)**: Proporciona el usuario con las horas más altas jugadas para un género específico, categorizado por año.
+3. **UserForGenre(genre: str)**: Proporciona el usuario con la mayor cantidad de horas jugadas para el género dado, categorizado por año.
 4. **best_developer_year(year:int)**: Devuelve los 3 mejores desarrolladores recomendados por los usuarios para un año dado.
-5. **developer_review_analysis(developer:str)**: Resume las reseñas positivas y negativas de un desarrollador.
+5. **developer_review_analysis(developer:str)**: Resume las reseñas positivas y negativas de un desarrollador en particular.
 6. **find_similar_games(game_name:str)**: Encuentra juegos similares basados en similitud coseno y proporciona recomendaciones.
 7. **find_user_recommendations(user_id:str)**: Ofrece recomendaciones personalizadas basadas en interacciones entre usuarios y elementos.
 
